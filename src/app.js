@@ -11,13 +11,16 @@ import Signup from './components/Signup';
 
 class App extends React.Component{
 
-  // componentDidMount() { 
-  //   return console.log(" returning DiD Mount");
-  // }
+  componentDidMount() { 
+    setTimeout(()=>{
+      alert("Want to learn more \n Sign Up Now !! ")
+    }, 5000);
+    return console.log(" returning DiD Mount");
+  }
   
-  // componentWillUnmount() { 
-  //   console.log("component will unmount");
-  // }
+  componentWillUnmount() { 
+    console.log("component will unmount");
+  }
   
   render(){
     return(
