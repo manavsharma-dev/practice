@@ -39,6 +39,7 @@ export default class Signup extends React.Component{
 
       return(
         <div className='signup'>
+         { console.log("in signup component") }
           <h1>Sign Up </h1>
           <form onSubmit={this.handle_Submit}>
             <div className='username' name='username'>

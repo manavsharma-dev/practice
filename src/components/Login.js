@@ -19,7 +19,7 @@ export default class Login extends React.Component{
   }
 
 handleChange(){
-  
+
   this.setState({
     email:this.userName.value,
     password:this.userPass.value
@@ -46,7 +46,8 @@ handleSubmit(event){
   render(){
 
     return(
-      <div className='HomePage'>
+      <div className='HomePage' align='center'>
+         { console.log("in login component") }
         <h1>Hello, Welcome!! </h1>
         <form onSubmit={this.handleSubmit}>
           <div className='username' name='username'>
@@ -54,18 +55,20 @@ handleSubmit(event){
             <br/>
             <input ref={userName => this.userName = userName} type='text' onChange={this.handleChange} placeholder ='Username'/>
             <br/>
-           </div>
-        <div className='password' name='password'>
+          </div>
+          <br/>
+          <div className='password' name='password'>
             <label>Enter Password</label>
             <br/>
             <input ref={userPass => this.userPass = userPass} type='text' onChange={this.handleChange} placeholder ='Password'/>
+            <br/>
             <br/>
               <input type='submit' value='Submit'/>
           </div>
         </form>
       {/* { this.state.isSubmitted === true && <Workspace username={this.state.email}/>} */}
-      
-      <Link to ='/'>Welcome</Link>
+{/*       
+      <Link to ='/'>Welcome</Link> */}
       </div>
     );
   }
