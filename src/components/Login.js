@@ -71,7 +71,7 @@ class LoginForm extends React.Component{
       <div className='HomePage' align='center'>
 
         { console.log("in login component") }
-        {console.log(`pending ${pending_info}.....\nsuccess${success_info}.......\nerror${error_info}`)}
+        {/* {console.log(`pending ${pending_info}.....\nsuccess${success_info}.......\nerror${error_info}`)} */}
 
         <h1>Hello, Welcome!! </h1>
         <form onSubmit={this.onSubmit}>
