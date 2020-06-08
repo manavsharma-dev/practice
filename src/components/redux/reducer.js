@@ -57,34 +57,35 @@ export default function reducer(state = {
 
 
 
-export function login (email, password){
+export function login (email, password, err){
 
     return dispatch => {
         dispatch(login_pending(true));
         dispatch(login_success(false));
         dispatch(login_error(null));
 
-        loginRequest(email,password, err => {
-        
-            dispatch(login_pending(false));
+        const result = loginRequest(email,password);
+        console.log('result---', result);
+
+        dispatch(login_pending(false));
             console.log(`email--${email}\npassword--${password}`);
-            if(!err){
+            if(result){
                 console.log("in if part of login fn");
                 dispatch(login_success(true));
-            } else{
+            }else if(!result){
                 console.log("in else part of login fn");
-                dispatch(login_error(err));
+                dispatch(login_success(false));
+                dispatch(login_error('Invalid Email/Password'));
             }
-        });
     }
 }
 
-function loginRequest(email, password, callback){
-    setTimeout(()=>{
-        if (email === 'admin@admin.com' && password === 'admin'){
-            return callback(true);
-        }else{
-            return callback(new Error('Invalid Email/Password'))
-        }
-    }, 1000);
+function loginRequest(email, password){
+
+    if (email === 'admin@admin.com' && password === 'admin'){
+        return true;
+    }else{
+        return false;
+    }
+    
 }
